@@ -112,6 +112,12 @@
                     </command>
                     <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
                 </item>
+                <item guid="c2f21fe0-df32-4610-914c-72fb0bdf70b2" action="command" session="$session">
+                    <command>
+                        <body>dir</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
             </steps>
             <arguments>
                 <item name="ip"/>
