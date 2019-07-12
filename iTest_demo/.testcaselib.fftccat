@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<TestCaseCatalog version="8.0.0.201907041835">
+    <testCaseCatalog>
+        <item name="test_cases/cmd_tc.fftc">
+            <tcDescriptor version="8.0.0.201907041835">
+                <general>
+                    <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/cmd_demo.ffsp"/>
+                </general>
+                <procedures>
+                    <item name="ping" isPublic="true">
+                        <arguments>
+                            <item name="ip"/>
+                        </arguments>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+    </testCaseCatalog>
+</TestCaseCatalog>

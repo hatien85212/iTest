@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
+  <header>
+    <name>new_topology</name>
+    <description></description>
+    <property name="author">tien.dao</property>
+    <property name="dateCreated">2019-07-11T15:39:08.808+07:00</property>
+    <property name="notes"/>
+    <property name="dateModified">2019-07-12T13:41:27.982+07:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">8.0.0.201907041836</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="50b8ada0-399a-469d-8929-083acfbc0984" id="resource_0" type="pc">
+        <boundary height="100" width="100" x="144" y="216"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/pc_32.gif</property>
+        <property name="name">router</property>
+        <property name="inventoryName"/>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="python" provider="com.fnfr">
+            <sessionProfile version="8.0.0.201907041835">
+              <baseApplication>com.fnfr.svt.applications.python</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+              <baseProfile>project://iTest_demo/session_proflie/python.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="cmd" provider="com.fnfr">
+            <sessionProfile version="8.0.0.201907041835">
+              <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+              <baseProfile>project://iTest_demo/session_proflie/cmd_demo.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+      </resource>
+    </resources>
+    <connectivity/>
+  </body>
+  <illustration>
+    <layer/>
+  </illustration>
+</tbml>

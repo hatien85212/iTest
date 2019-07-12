@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<testCase version="8.0.0.201907041835">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="a35b0372-4f1b-4b6e-89cb-674a4902e41c" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Work in Python and call another procedure whose steps are on cmd session</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="595aadba-68a4-49f8-8702-9bbfe4879255" action="open" session="t1" useFieldsInCommand="false">
+                    <command>
+                        <body>project://iTest_demo/session_proflie/python.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="01bddb43-3363-4260-b26a-28adc566a461" action="command" session="t1" normalOffset="4.591" estimatedStepExecutionTime="0.004" useFieldsInCommand="false">
+                    <command>
+                        <body>1+2</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="560a29fa-678b-4edb-8c59-278934b1333b" action="command" session="t1" normalOffset="6.732" estimatedStepExecutionTime="0.056" useFieldsInCommand="false">
+                    <command>
+                        <body>Hello</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7b93bf72-c305-460e-80f0-d33d4a2ed28e" action="command" session="t1" normalOffset="6.743" estimatedStepExecutionTime="0.004" useFieldsInCommand="false">
+                    <command>
+                        <body>Print(&quot;Hello&quot;)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b7ba13c3-508b-4ed0-805e-00b207da1efd" action="command" session="t1" normalOffset="9.292" estimatedStepExecutionTime="0.006" useFieldsInCommand="false">
+                    <command>
+                        <body>print(&quot;hello&quot;)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="de41c808-3279-42f4-a485-07cce5951572" action="close" session="t1" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="535eb346-447d-4d4c-8c83-e474ca698a40" action="call" normalOffset="5.552" useFieldsInCommand="false">
+                    <command>
+                        <body>call_cmd</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="call_cmd">
+            <steps>
+                <item guid="630f85fb-b3fa-4fb1-8032-29a6b7511969" action="open" session="s1">
+                    <command>
+                        <body>project://iTest_demo/session_proflie/cmd_demo.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="1577e706-64c1-4692-ae47-8cc8998f98f1" action="command" session="s1">
+                    <command>
+                        <body>ipconfig</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0e4028ad-38f0-42ed-abd8-918bdd24faaa" action="close" session="s1" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

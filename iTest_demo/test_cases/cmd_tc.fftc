@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<testCase version="8.0.0.201907041835">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/cmd_demo.ffsp"/>
+    </general>
+    <execution>
+        <parameters version="8.0.0.201907041835">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <info>
+                        <ip>10.20.12.76</ip>
+                    </info>
+                    <info2/>
+                    <add_name>abc</add_name>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="f91db517-265b-45cd-aa62-751e7361cade" action="open" session="t1" useFieldsInCommand="false">
+                    <command>
+                        <body>project://iTest_demo/session_proflie/cmd_demo.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="da74bd37-d434-44fb-980e-5acfd08c36c8" action="command" session="t1" normalOffset="4.22" estimatedStepExecutionTime="0.034">
+                    <command>
+                        <body>ipconfig</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.2" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="e9499c60-cb58-489b-8ccd-c04730498779" action="command" session="t1" normalOffset="4.454" estimatedStepExecutionTime="0.028">
+                    <command>
+                        <body>hostname</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="contains">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                        <searchString>817</searchString>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value == 1</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>{auto_message_true}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>{auto_message_false}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.336" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="a31a9030-fcdc-4105-8591-18fabca98883" action="close" session="t1" normalOffset="13.026">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+        <item name="ping" isPublic="true">
+            <steps>
+                <item guid="ceaf5079-a558-4557-8e83-686d7acb1515" action="open" session="s1" skip="true">
+                    <command>
+                        <body>project://iTest_demo/session_proflie/cmd_demo.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="4087f781-6e6e-472b-9404-22bb8114213b" action="command" session="$session">
+                    <command>
+                        <body>[param info/ip]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="d6ed2ed7-bed2-4a20-915a-a0aa12b83856" action="command" session="$session">
+                    <command>
+                        <body>ping [param IP]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="ip"/>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>
