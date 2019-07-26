@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<testCase version="8.0.0.201907041835">
+    <execution>
+        <parameters version="8.0.0.201907041835">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <pa_ip>10.20.12.131</pa_ip>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="c37c4d42-056c-4e14-8d0c-6af70a0b9c2c" action="open" session="s2" useFieldsInCommand="false">
+                    <command>
+                        <body>project://iTest_demo/session_proflie/customized%20sessions/qc3_python_cmd_c.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.documents.PropertyString">8.0.1</sessionVersion>
+                    </applicationProperties>
+                </item>
+                <item guid="868b178f-b20b-4d16-8553-fed66d98c302" action="sum_31" session="s2">
+                    <command>
+                        <body>-arg1 1 -arg2 2</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.itest.platform2.shared.documents.ntaf.NtafTransferableDocumentObject" action="sum_31" subharness="http://spirent.com/CustomizedSessions/tools/AQC3pythoncmdCtxtfilenoparam/harness/main" harness="http://spirent.com/CustomizedSessions/tools/AQC3pythoncmdCtxtfilenoparam/harness/main" harnessName="Spirent Custom Tool"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

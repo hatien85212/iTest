@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<testCase version="8.0.0.201907041835">
+    <general>
+        <rendering tclNamespace="TC_Namespace" testCaseId="TC_ID" testCaseName="TC_Name"/>
+        <documentation>HeadlineTC</documentation>
+        <notes>DescriptionTC
+Line2</notes>
+        <owner>OwnerTC</owner>
+    </general>
+    <execution>
+        <parameters version="8.0.0.201907041835">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <info>
+                        <ip>10.20.12.76</ip>
+                    </info>
+                    <info2/>
+                    <add_name>abc</add_name>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="f91db517-265b-45cd-aa62-751e7361cade" action="open" session="t1" useFieldsInCommand="false">
+                    <command>
+                        <body>project://iTest_demo/session_proflie/ss1_original/qc3_python_cmd.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="da74bd37-d434-44fb-980e-5acfd08c36c8" action="sum_31" session="t1" normalOffset="4.22" estimatedStepExecutionTime="0.034" useFieldsInCommand="false">
+                    <command>
+                        <body> -arg1 1 -arg2 2</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <response>{}</response>
+        </item>
+    </procedures>
+</testCase>

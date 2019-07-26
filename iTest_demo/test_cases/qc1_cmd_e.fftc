@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<testCase version="8.0.0.201907041835">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/customized%20sessions/qc1_cmd_e.ffsp"/>
+    </general>
+    <execution>
+        <parameters version="8.0.0.201907041835">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <pa_ip>10.20.12.131</pa_ip>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="c37c4d42-056c-4e14-8d0c-6af70a0b9c2c" action="open" session="s2" useFieldsInCommand="false">
+                    <command>
+                        <body>project://iTest_demo/session_proflie/customized%20sessions/qc1_cmd_e.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.documents.PropertyString">8.0.1</sessionVersion>
+                    </applicationProperties>
+                </item>
+                <item guid="868b178f-b20b-4d16-8553-fed66d98c302" action="command" session="s2">
+                    <command>
+                        <body>echo abc</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="910e7f99-5c2e-470b-976e-3e1ea93ad40e" action="returnJson2_11" session="s2">
+                    <command>
+                        <body>-ip 10.20.12.131 -note default</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.itest.platform2.shared.documents.ntaf.NtafTransferableDocumentObject" action="returnJson2_11" subharness="http://spirent.com/CustomizedSessions/tools/AQC1cmdE/harness/main" harness="http://spirent.com/CustomizedSessions/tools/AQC1cmdE/harness/main" harnessName="Spirent Custom Tool"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

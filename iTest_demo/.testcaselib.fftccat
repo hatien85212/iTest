@@ -1,18 +1,130 @@
 <?xml version="1.0"?>
 <TestCaseCatalog version="8.0.0.201907041835">
     <testCaseCatalog>
-        <item name="test_cases/cmd_tc.fftc">
+        <item name="test_cases/qc1_original/qc2_cmd_py_lang.fftc">
             <tcDescriptor version="8.0.0.201907041835">
                 <general>
-                    <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/cmd_demo.ffsp"/>
+                    <notes>Aqc cmd py lang</notes>
+                    <owner>Cuc.Nguyen</owner>
+                    <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/ss1_original/qc2_cmd_py_lang.ffsp"/>
+                    <language>Python</language>
                 </general>
                 <procedures>
-                    <item name="ping" isPublic="true">
+                    <item name="returnsJson_21" isPublic="true" isVBlock="true">
+                        <description>Headline</description>
+                        <author>cuc.nguyen</author>
+                        <version>1</version>
+                        <multilineDescription>Return a Json format</multilineDescription>
                         <arguments>
-                            <item name="ip"/>
+                            <item name="value">
+                                <defaultValue>returnsJson</defaultValue>
+                            </item>
+                        </arguments>
+                        <response>{&quot;key&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="returnsAutoQueries_22" isPublic="true">
+                        <multilineDescription>Return auto query
+</multilineDescription>
+                        <arguments>
+                            <item name="time"/>
+                        </arguments>
+                    </item>
+                    <item name="returnsString_23" isPublic="true">
+                        <multilineDescription>Return String</multilineDescription>
+                        <arguments>
+                            <item name="str">
+                                <defaultValue>hello</defaultValue>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="showSessionInfo_24" isPublic="true">
+                        <arguments>
+                            <item name="name"/>
+                        </arguments>
+                        <response>{
+  &quot;key1&quot;: &quot;value&quot;,
+  &quot;jObject&quot;: {
+    &quot;key2&quot;: &quot;value&quot;,
+    &quot;key&quot;: &quot;value&quot;
+  },
+  &quot;bool&quot;: true,
+  &quot;array&quot;: [
+    1,
+    2,
+    3
+  ],
+  &quot;key&quot;: &quot;value&quot;
+}</response>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+        <item name="test_cases/qc1_original/qc1_cmd.fftc">
+            <tcDescriptor version="8.0.0.201907041835">
+                <general>
+                    <rendering tclNamespace="TC_Namespace" testCaseId="TC_ID" testCaseName="TC_Name"/>
+                    <documentation>HeadlineTC</documentation>
+                    <notes>DescriptionTC - Aqc cmd
+Line2</notes>
+                    <owner>OwnerTC</owner>
+                    <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/ss1_original/qc1_cmd.ffsp"/>
+                </general>
+                <procedures>
+                    <item name="returnJson2_11" isPublic="true" isVBlock="true">
+                        <multilineDescription>Return JSON: {&quot;key&quot;:&quot;value&quot;}</multilineDescription>
+                        <arguments>
+                            <item name="ip">
+                                <description>description</description>
+                                <defaultValue>10.20.12.131</defaultValue>
+                            </item>
+                            <item name="note">
+                                <defaultValue>default</defaultValue>
+                            </item>
+                        </arguments>
+                        <response>{&quot;ip&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="returnIp_12" isPublic="true">
+                        <description>HeadlineT</description>
+                        <author>AuthorT</author>
+                        <version>VersionT</version>
+                        <multilineDescription>B1 call A1 ping_2 is copied from ping 
+multiple line</multilineDescription>
+                        <arguments>
+                            <item name="ip">
+                                <description>description</description>
+                                <defaultValue>10.20.12.131</defaultValue>
+                            </item>
+                        </arguments>
+                        <response>{&quot;key&quot;:&quot;value&quot;}</response>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+        <item name="test_cases/qc1_original/qc3_python_cmd.fftc">
+            <tcDescriptor version="8.0.0.201907041835">
+                <general>
+                    <notes>Aqc python cmd</notes>
+                    <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/ss1_original/qc3_python_cmd.ffsp"/>
+                </general>
+                <procedures>
+                    <item name="sum_31" isPublic="true">
+                        <arguments>
+                            <item name="arg1">
+                                <defaultValue>1</defaultValue>
+                            </item>
+                            <item name="arg2">
+                                <defaultValue>2</defaultValue>
+                            </item>
                         </arguments>
                     </item>
                 </procedures>
+            </tcDescriptor>
+        </item>
+        <item name="test_cases/qc1_cmd_e.fftc">
+            <tcDescriptor version="8.0.0.201907041835">
+                <general>
+                    <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/customized%20sessions/qc1_cmd_e.ffsp"/>
+                </general>
             </tcDescriptor>
         </item>
     </testCaseCatalog>

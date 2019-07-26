@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<testSuite version="8.0.0.201907041835">
+    <testGroups>
+        <item name="group1">
+            <rootFolder>project://iTest_demo/test_cases/</rootFolder>
+            <includeByDefault>false</includeByDefault>
+            <filterList>
+                <item name="Include_qc" type="com.fnfr.svt.testsuite.core.filters.TestSuiteFileMatchFilter">
+                    <allowSubFolders>false</allowSubFolders>
+                    <pattern>qc?*</pattern>
+                    <onMatch>INCLUDE</onMatch>
+                    <onNoMatch>EXCLUDE</onNoMatch>
+                </item>
+                <item name="Include_test_qc" type="com.fnfr.svt.testsuite.core.filters.TestSuiteFileMatchFilter">
+                    <allowSubFolders>false</allowSubFolders>
+                    <pattern>test*</pattern>
+                    <onMatch>INCLUDE</onMatch>
+                </item>
+                <item name="Exclude_capture" type="com.fnfr.svt.testsuite.core.filters.TestSuiteFileMatchFilter">
+                    <pattern>*capture*</pattern>
+                    <onMatch>EXCLUDE</onMatch>
+                </item>
+            </filterList>
+        </item>
+    </testGroups>
+</testSuite>

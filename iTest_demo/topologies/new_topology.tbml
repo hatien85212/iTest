@@ -6,7 +6,7 @@
     <property name="author">tien.dao</property>
     <property name="dateCreated">2019-07-11T15:39:08.808+07:00</property>
     <property name="notes"/>
-    <property name="dateModified">2019-07-12T13:41:27.982+07:00</property>
+    <property name="dateModified">2019-07-23T10:48:48.767+07:00</property>
     <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
     <property name="creationToolVersion" vendor="com.fnfr">8.0.0.201907041836</property>
   </header>
@@ -26,11 +26,50 @@
               <standalone>false</standalone>
             </sessionProfile>
           </session>
-          <session baseSessionProfile="" name="cmd" provider="com.fnfr">
+          <session baseSessionProfile="project://iTest_demo/session_proflie/qc1_cmd_e.ffsp" name="cmd" provider="com.fnfr">
             <sessionProfile version="8.0.0.201907041835">
               <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
-              <baseProfile>project://iTest_demo/session_proflie/cmd_demo.ffsp</baseProfile>
+              <baseProfile>project://iTest_demo/session_proflie/qc1_cmd_e.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="command_prompt_t" provider="com.fnfr">
+            <sessionProfile version="8.0.0.201907041835">
+              <baseApplication>com.fnfr.itest.applications.spirent.customtool.commandpromptt</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties">
+                <terminalProperties>
+                  <stepDefaults>
+                    <lineTerminator inherit="false">SLASH_R</lineTerminator>
+                    <implicitCrWithLf inherit="false">true</implicitCrWithLf>
+                  </stepDefaults>
+                  <terminalSizeProperties>
+                    <termWidth inherit="false">200</termWidth>
+                    <heightSizing inherit="false">FREE</heightSizing>
+                    <widthSizing inherit="false">FIXED</widthSizing>
+                  </terminalSizeProperties>
+                  <captureProperties>
+                    <commandBreakChars inherit="false">
+                      <item>[char Ctrl-C]</item>
+                    </commandBreakChars>
+                    <commandCompletionchars inherit="false">
+                      <item>[char TAB]</item>
+                    </commandCompletionchars>
+                  </captureProperties>
+                  <keyboardProperties>
+                    <carriageReturn inherit="false">SLASH_R</carriageReturn>
+                  </keyboardProperties>
+                  <prompts inherit="false">
+                    <item MatchMethod="REGULAR_EXPRESSION" name="defaultPrompt">
+                      <Content>.*[\\&gt;]$</Content>
+                    </item>
+                    <item MatchMethod="WILDCARD" TypeOfPrompt="MORE" name="defaultMorePrompt">
+                      <Content>*more*</Content>
+                    </item>
+                  </prompts>
+                </terminalProperties>
+              </sessionProperties>
+              <baseProfile>project://iTest_demo/session_proflie/customized.ffsp</baseProfile>
               <standalone>false</standalone>
             </sessionProfile>
           </session>

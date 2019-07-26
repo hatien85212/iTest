@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<testCase version="8.0.0.201907041835" entryPoint="returnsJson_21">
+    <general>
+        <notes>Aqc cmd py lang</notes>
+        <owner>Cuc.Nguyen</owner>
+        <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/ss1_original/qc2_cmd_py_lang.ffsp"/>
+        <language>Python</language>
+    </general>
+    <procedures>
+        <item name="returnsJson_21" isPublic="true" isVBlock="true">
+            <description>Headline</description>
+            <steps>
+                <item guid="d469719f-2aff-43f6-9f7a-2cb23f6e7282" action="command" session="[session]">
+                    <command>
+                        <body>echo $value</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="regex">
+                                    <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                        <regex>[^\\r\\n]+</regex>
+                                        <extractionGroupIndex>0</extractionGroupIndex>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <query>key</query>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <author>cuc.nguyen</author>
+            <version>1</version>
+            <multilineDescription>Return a Json format</multilineDescription>
+            <arguments>
+                <item name="value">
+                    <defaultValue>returnsJson</defaultValue>
+                </item>
+            </arguments>
+            <response>{&quot;key&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="returnsAutoQueries_22" isPublic="true">
+            <steps>
+                <item guid="852fcfb0-dd02-4354-8fdf-0e67f1784aa7" action="command" session="[session]">
+                    <command>
+                        <body>set n=^&amp;echo.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="faa9c7e0-eee5-4812-a8b3-b21ada8c8a71" action="command" session="[session]">
+                    <command>
+                        <body>echo responseTime: [time]%n%packetLoss: zero</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>var1</storeResponseAt>
+                        <storeResponseText>true</storeResponseText>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="abeaf495-9f58-4e5b-a05b-d34e3e1d352f" action="return">
+                    <command>
+                        <body>[var1]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Return auto query
+</multilineDescription>
+            <arguments>
+                <item name="time"/>
+            </arguments>
+        </item>
+        <item name="returnsString_23" isPublic="true">
+            <steps>
+                <item guid="d00ea439-0e6a-4ac8-a530-a41ebf76fa41" action="return">
+                    <command>
+                        <body>[str]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Return String</multilineDescription>
+            <arguments>
+                <item name="str">
+                    <defaultValue>hello</defaultValue>
+                </item>
+            </arguments>
+        </item>
+        <item name="showSessionInfo_24" isPublic="true">
+            <steps>
+                <item guid="862d860c-00c1-4086-8c13-27264377ef4f" action="return">
+                    <command>
+                        <body>Hello World</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="name"/>
+            </arguments>
+            <response>{
+  &quot;key1&quot;: &quot;value&quot;,
+  &quot;jObject&quot;: {
+    &quot;key2&quot;: &quot;value&quot;,
+    &quot;key&quot;: &quot;value&quot;
+  },
+  &quot;bool&quot;: true,
+  &quot;array&quot;: [
+    1,
+    2,
+    3
+  ],
+  &quot;key&quot;: &quot;value&quot;
+}</response>
+        </item>
+    </procedures>
+</testCase>

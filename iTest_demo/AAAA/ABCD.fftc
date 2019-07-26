@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<testCase version="8.0.0.201907041835">
+    <procedures>
+        <item name="main"/>
+    </procedures>
+</testCase>

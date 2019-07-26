@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
-<testCase version="8.0.0.201907041835">
+<testCase version="8.0.0.201907041835" entryPoint="call_cmd">
+    <general>
+        <notes>Aqc python cmd</notes>
+        <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/ss1_original/qc3_python_cmd.ffsp"/>
+    </general>
     <procedures>
         <item name="main">
             <steps>
@@ -47,23 +51,17 @@
                 <item guid="de41c808-3279-42f4-a485-07cce5951572" action="close" session="t1" useFieldsInCommand="false">
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="535eb346-447d-4d4c-8c83-e474ca698a40" action="call" normalOffset="5.552" useFieldsInCommand="false">
-                    <command>
-                        <body>call_cmd</body>
-                    </command>
-                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                </item>
             </steps>
         </item>
         <item name="call_cmd">
             <steps>
                 <item guid="630f85fb-b3fa-4fb1-8032-29a6b7511969" action="open" session="s1">
                     <command>
-                        <body>project://iTest_demo/session_proflie/cmd_demo.ffsp</body>
+                        <body>project://iTest_demo/session_proflie/ss1_original/qc3_python_cmd.ffsp</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
-                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
-                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
                         <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                     </applicationProperties>
@@ -72,12 +70,40 @@
                     <command>
                         <body>ipconfig</body>
                     </command>
-                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
                 <item guid="0e4028ad-38f0-42ed-abd8-918bdd24faaa" action="close" session="s1" useFieldsInCommand="false">
-                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
             </steps>
+            <response>{}</response>
+        </item>
+        <item name="sum_31" isPublic="true">
+            <steps>
+                <item guid="bad25924-ac3e-42fa-a076-c85e73d9b80c" action="command" session="$session" useFieldsInCommand="false">
+                    <command>
+                        <body>1+2</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>b</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e43b6cad-2da0-4188-bda6-e9972cc38f0a" action="return">
+                    <command>
+                        <body>$b</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="arg1">
+                    <defaultValue>1</defaultValue>
+                </item>
+                <item name="arg2">
+                    <defaultValue>2</defaultValue>
+                </item>
+            </arguments>
         </item>
     </procedures>
 </testCase>

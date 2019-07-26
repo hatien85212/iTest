@@ -1,7 +1,12 @@
 <?xml version="1.0"?>
 <testCase version="8.0.0.201907041835">
     <general>
-        <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/cmd_demo.ffsp"/>
+        <rendering tclNamespace="TC_Namespace" testCaseId="TC_ID" testCaseName="TC_Name"/>
+        <documentation>HeadlineTC</documentation>
+        <notes>DescriptionTC - Aqc cmd
+Line2</notes>
+        <owner>OwnerTC</owner>
+        <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/ss1_original/qc1_cmd.ffsp"/>
     </general>
     <execution>
         <parameters version="8.0.0.201907041835">
@@ -21,7 +26,7 @@
             <steps>
                 <item guid="f91db517-265b-45cd-aa62-751e7361cade" action="open" session="t1" useFieldsInCommand="false">
                     <command>
-                        <body>project://iTest_demo/session_proflie/cmd_demo.ffsp</body>
+                        <body>project://iTest_demo/session_proflie/ss1_original/qc1_cmd.ffsp</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
                         <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
@@ -35,12 +40,12 @@
                         <body>ipconfig</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
-                        <completionProperties expectedIdleTime="0.2" expectedIdleTime.inherit="false"/>
+                        <completionProperties expectedIdleTime="0.336" expectedIdleTime.inherit="false"/>
                     </applicationProperties>
                 </item>
-                <item guid="abd06858-53ae-424d-adb5-fab1142de8b9" action="ping" session="t1" useFieldsInCommand="false">
+                <item guid="abd06858-53ae-424d-adb5-fab1142de8b9" action="returnIp_12" session="t1" useFieldsInCommand="false">
                     <command>
-                        <body> -ip &quot;&quot;</body>
+                        <body> -ip 10.20.12.131</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
                 </item>
@@ -92,8 +97,9 @@
                     <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
                 </item>
             </steps>
+            <response>{}</response>
         </item>
-        <item name="ping" isPublic="true">
+        <item name="returnJson2_11" isPublic="true" isVBlock="true">
             <steps>
                 <item guid="ceaf5079-a558-4557-8e83-686d7acb1515" action="open" session="s1" skip="true">
                     <command>
@@ -105,6 +111,12 @@
                         <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                     </applicationProperties>
+                </item>
+                <item guid="5772ce73-04f0-4f70-898a-bd14e7986046" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Return JSON: {&quot;key&quot;:&quot;value&quot;}</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
                 <item guid="4087f781-6e6e-472b-9404-22bb8114213b" action="command" session="$session">
                     <command>
@@ -118,18 +130,63 @@
                     </command>
                     <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
                 </item>
-                <item guid="c2f21fe0-df32-4610-914c-72fb0bdf70b2" action="write">
+                <item guid="c2f21fe0-df32-4610-914c-72fb0bdf70b2" action="command" session="$session">
                     <command>
-                        <body>$response</body>
+                        <body>echo $note</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <multilineDescription>Return JSON: {&quot;key&quot;:&quot;value&quot;}</multilineDescription>
+            <arguments>
+                <item name="ip">
+                    <description>description</description>
+                    <defaultValue>10.20.12.131</defaultValue>
+                </item>
+                <item name="note">
+                    <defaultValue>default</defaultValue>
+                </item>
+            </arguments>
+            <response>{&quot;ip&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="returnIp_12" isPublic="true">
+            <description>HeadlineT</description>
+            <steps>
+                <item guid="ac86038f-5737-45c7-b2be-d031a32b9e4f" action="open" session="$session" skip="true">
+                    <command>
+                        <body>project://iTest_demo/session_proflie/cmd_demo.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="6db177bc-4ffd-4906-8c1d-5720641e600f" action="returnJson2_11" session="$session" useFieldsInCommand="false">
+                    <command>
+                        <body> -ip 10.20.12.131 -note default</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="8ce0c60f-104e-4842-903f-38ca74fa513f" action="return">
+                    <command>
+                        <body>$ip</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
             </steps>
+            <author>AuthorT</author>
+            <version>VersionT</version>
+            <multilineDescription>B1 call A1 ping_2 is copied from ping 
+multiple line</multilineDescription>
             <arguments>
-                <item name="ip"/>
-                <item name="note"/>
+                <item name="ip">
+                    <description>description</description>
+                    <defaultValue>10.20.12.131</defaultValue>
+                </item>
             </arguments>
-            <response>{}</response>
+            <response>{&quot;key&quot;:&quot;value&quot;}</response>
         </item>
     </procedures>
 </testCase>

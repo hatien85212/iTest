@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<testCase version="8.0.0.201907041835">
+    <execution>
+        <parameters version="8.0.0.201907041835">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <ip>10.20.12.85</ip>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="5d47358b-4f8e-4456-8df6-b06bcaf01135" action="open" session="t1">
+                    <command>
+                        <body>project://iTest_demo/session_proflie/customized%20sessions/qc1_cmd_c.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                            <completionProperties>
+                                <completeWhen inherit="false">AUTO_OR_IDLE</completeWhen>
+                            </completionProperties>
+                        </stepProperties>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties">
+                            <terminalProperties>
+                                <stepDefaults>
+                                    <lineTerminator inherit="false">SLASH_R</lineTerminator>
+                                    <implicitCrWithLf inherit="false">true</implicitCrWithLf>
+                                </stepDefaults>
+                                <terminalSizeProperties>
+                                    <termWidth inherit="false">200</termWidth>
+                                    <heightSizing inherit="false">FREE</heightSizing>
+                                    <widthSizing inherit="false">FIXED</widthSizing>
+                                </terminalSizeProperties>
+                                <captureProperties>
+                                    <commandBreakChars inherit="false">
+                                        <item>[char Ctrl-C]</item>
+                                    </commandBreakChars>
+                                    <commandCompletionchars inherit="false">
+                                        <item>[char TAB]</item>
+                                    </commandCompletionchars>
+                                </captureProperties>
+                                <keyboardProperties>
+                                    <carriageReturn inherit="false">SLASH_R</carriageReturn>
+                                </keyboardProperties>
+                                <prompts inherit="false">
+                                    <item name="defaultPrompt" MatchMethod="REGULAR_EXPRESSION">
+                                        <Content>.*[\\&gt;]$</Content>
+                                    </item>
+                                    <item name="defaultMorePrompt" MatchMethod="WILDCARD" TypeOfPrompt="MORE">
+                                        <Content>*more*</Content>
+                                    </item>
+                                </prompts>
+                            </terminalProperties>
+                        </sessionProperties>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.documents.PropertyString">8.0.1</sessionVersion>
+                    </applicationProperties>
+                </item>
+                <item guid="b7918a0e-4482-4495-8380-04be6d5dc106" action="returnJson2_11" session="t1" context="SessionStateConsole" normalOffset="10.65" estimatedStepExecutionTime="3.388">
+                    <command>
+                        <body>-ip 10.20.12.131 -note default</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.itest.platform2.shared.documents.ntaf.NtafTransferableDocumentObject" action="returnJson2_11" subharness="http://spirent.com/CustomizedSessions/tools/AQC1cmdC/harness/main" harness="http://spirent.com/CustomizedSessions/tools/AQC1cmdC/harness/main" harnessName="Spirent Custom Tool"/>
+                </item>
+                <item guid="cc88611e-41ad-4f9b-95c8-931a42b16895" action="returnIp_12" session="t1" context="SessionStateConsole" normalOffset="6.733">
+                    <command>
+                        <body>-ip &quot;[param ip]&quot;</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>group1()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value eq &quot;[param ip]&quot;</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>{auto_message_true}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>{auto_message_false}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.itest.platform2.shared.documents.ntaf.NtafTransferableDocumentObject" action="returnIp_12" subharness="http://spirent.com/CustomizedSessions/tools/AQC1cmdC/harness/main" harness="http://spirent.com/CustomizedSessions/tools/AQC1cmdC/harness/main" harnessName="Spirent Custom Tool" ip="[param ip]" ip.inherit="false"/>
+                </item>
+                <item guid="fd30f6b5-a6fd-4f96-b581-734b9ad99bda" action="close" session="t1" normalOffset="17.222">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

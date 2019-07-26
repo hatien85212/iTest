@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<SessionTemplate version="8.0.0.201907041835">
+    <baseApplication>com.fnfr.itest.applications.spirent.customtool.aqc3pythoncmdctxtfilenoparam</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+    <responseLibrary inherit="false">project://iTest_demo/</responseLibrary>
+    <formMapLibrary inherit="false">project://iTest_demo/</formMapLibrary>
+</SessionTemplate>

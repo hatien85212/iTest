@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<SessionTemplate version="8.0.0.201907041835">
+    <baseApplication>com.fnfr.itest.applications.spirent.customtool.aqc1cmdc</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties">
+        <terminalProperties>
+            <stepDefaults>
+                <lineTerminator inherit="false">SLASH_R</lineTerminator>
+                <implicitCrWithLf inherit="false">true</implicitCrWithLf>
+            </stepDefaults>
+            <terminalSizeProperties>
+                <termWidth inherit="false">200</termWidth>
+                <heightSizing inherit="false">FREE</heightSizing>
+                <widthSizing inherit="false">FIXED</widthSizing>
+            </terminalSizeProperties>
+            <captureProperties>
+                <commandBreakChars inherit="false">
+                    <item>[char Ctrl-C]</item>
+                </commandBreakChars>
+                <commandCompletionchars inherit="false">
+                    <item>[char TAB]</item>
+                </commandCompletionchars>
+            </captureProperties>
+            <keyboardProperties>
+                <carriageReturn inherit="false">SLASH_R</carriageReturn>
+            </keyboardProperties>
+            <prompts inherit="false">
+                <item name="defaultPrompt" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*[\\&gt;]$</Content>
+                </item>
+                <item name="defaultMorePrompt" MatchMethod="WILDCARD" TypeOfPrompt="MORE">
+                    <Content>*more*</Content>
+                </item>
+            </prompts>
+        </terminalProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://iTest_demo/</responseLibrary>
+    <formMapLibrary inherit="false">project://iTest_demo/</formMapLibrary>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>
