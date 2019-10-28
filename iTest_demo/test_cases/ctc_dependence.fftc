@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<testCase version="8.0.0.201907041835">
+<testCase version="8.1.0.201909260516">
     <execution>
-        <parameters version="8.0.0.201907041835">
+        <parameters version="8.1.0.201909260516">
             <parameters escape="true">
                 <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
                     <pa_ip>10.20.12.131</pa_ip>
@@ -14,7 +14,7 @@
             <steps>
                 <item guid="c37c4d42-056c-4e14-8d0c-6af70a0b9c2c" action="open" session="s2" useFieldsInCommand="false">
                     <command>
-                        <body>project://iTest_demo/session_proflie/qc3_python_cmd_c.ffsp</body>
+                        <body>project://iTest_demo/session_proflie/customized%20sessions/qc3_python_cmd_c.ffsp</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
                         <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>

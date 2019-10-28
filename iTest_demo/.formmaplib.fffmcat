@@ -1,2 +1,6 @@
 <?xml version="1.0"?>
-<FormMapCatalog version="8.0.0.201907041835"/>
+<FormMapCatalog version="8.0.0.201908221302">
+    <formMapCatalog>
+        <item>new_form_map.fffm</item>
+    </formMapCatalog>
+</FormMapCatalog>

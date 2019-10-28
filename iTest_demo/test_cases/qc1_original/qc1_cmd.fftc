@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<testCase version="8.0.0.201907041835">
+<testCase version="8.0.0.201908290812">
     <general>
         <rendering tclNamespace="TC_Namespace" testCaseId="TC_ID" testCaseName="TC_Name"/>
         <documentation>HeadlineTC</documentation>
@@ -9,14 +9,14 @@ Line2</notes>
         <sessionClass includeTestCase="true" sessionType="project://iTest_demo/session_proflie/ss1_original/qc1_cmd.ffsp"/>
     </general>
     <execution>
-        <parameters version="8.0.0.201907041835">
+        <parameters version="8.0.0.201908290812">
             <parameters escape="true">
                 <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
                     <info>
                         <ip>10.20.12.76</ip>
                     </info>
                     <info2/>
-                    <add_name>abc</add_name>
+                    <inter_par_note>Internal Parammeter</inter_par_note>
                 </parameters>
             </parameters>
         </parameters>
@@ -35,7 +35,7 @@ Line2</notes>
                         <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                     </applicationProperties>
                 </item>
-                <item guid="da74bd37-d434-44fb-980e-5acfd08c36c8" action="command" session="t1" normalOffset="4.22" estimatedStepExecutionTime="0.034">
+                <item guid="da74bd37-d434-44fb-980e-5acfd08c36c8" action="command" session="t1" skip="true" normalOffset="4.22" estimatedStepExecutionTime="0.034">
                     <command>
                         <body>ipconfig</body>
                     </command>
@@ -43,7 +43,7 @@ Line2</notes>
                         <completionProperties expectedIdleTime="0.336" expectedIdleTime.inherit="false"/>
                     </applicationProperties>
                 </item>
-                <item guid="abd06858-53ae-424d-adb5-fab1142de8b9" action="returnIp_12" session="t1" useFieldsInCommand="false">
+                <item guid="abd06858-53ae-424d-adb5-fab1142de8b9" action="returnIp_12" session="t1" skip="true" useFieldsInCommand="false">
                     <command>
                         <body> -ip 10.20.12.131</body>
                     </command>
@@ -132,7 +132,7 @@ Line2</notes>
                 </item>
                 <item guid="c2f21fe0-df32-4610-914c-72fb0bdf70b2" action="command" session="$session">
                     <command>
-                        <body>echo $note</body>
+                        <body>echo $note [param inter_par_note]</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
                 </item>
@@ -168,6 +168,12 @@ Line2</notes>
                         <body> -ip 10.20.12.131 -note default</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="3b452f60-7d24-4ca7-931f-1ebf2fcef772" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Return value of argument: ip</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
                 <item guid="8ce0c60f-104e-4842-903f-38ca74fa513f" action="return">
                     <command>

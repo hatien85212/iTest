@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
-<SessionTemplate version="8.0.0.201907041835">
+<SessionTemplate version="8.0.0.201908290812">
     <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
     <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
     <responseLibrary inherit="false">project://iTest_demo/</responseLibrary>
     <formMapLibrary inherit="false">project://iTest_demo/</formMapLibrary>
     <sessionClassTestCase inherit="false">project://iTest_demo/test_cases/qc1_original/qc1_cmd.fftc</sessionClassTestCase>
+    <isReferenceProfile>true</isReferenceProfile>
 </SessionTemplate>

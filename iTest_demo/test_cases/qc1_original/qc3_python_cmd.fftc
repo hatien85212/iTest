@@ -53,7 +53,7 @@
                 </item>
             </steps>
         </item>
-        <item name="call_cmd">
+        <item name="call_cmd" isVBlock="true">
             <steps>
                 <item guid="630f85fb-b3fa-4fb1-8032-29a6b7511969" action="open" session="s1">
                     <command>
@@ -73,16 +73,25 @@
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
                 <item guid="0e4028ad-38f0-42ed-abd8-918bdd24faaa" action="close" session="s1" useFieldsInCommand="false">
+                    <postProcessing>
+                        <storeResponseAt>b</storeResponseAt>
+                    </postProcessing>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
             </steps>
-            <response>{}</response>
+            <response>{&quot;msg&quot;:&quot;success&quot;}</response>
         </item>
         <item name="sum_31" isPublic="true">
             <steps>
                 <item guid="bad25924-ac3e-42fa-a076-c85e73d9b80c" action="command" session="$session" useFieldsInCommand="false">
                     <command>
-                        <body>1+2</body>
+                        <body>a=1+3</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="14431efe-e0f3-4a30-80c2-5ec47e9298db" action="command" session="$session" useFieldsInCommand="false">
+                    <command>
+                        <body>a</body>
                     </command>
                     <postProcessing>
                         <storeResponseAt>b</storeResponseAt>
@@ -104,6 +113,7 @@
                     <defaultValue>2</defaultValue>
                 </item>
             </arguments>
+            <response>{}</response>
         </item>
     </procedures>
 </testCase>

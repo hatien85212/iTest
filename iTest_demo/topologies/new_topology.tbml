@@ -6,9 +6,10 @@
     <property name="author">tien.dao</property>
     <property name="dateCreated">2019-07-11T15:39:08.808+07:00</property>
     <property name="notes"/>
-    <property name="dateModified">2019-07-23T10:48:48.767+07:00</property>
+    <property name="dateModified">2019-07-31T16:18:24.108+07:00</property>
     <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
     <property name="creationToolVersion" vendor="com.fnfr">8.0.0.201907041836</property>
+    <property name="emulation" vendor="com.fnfr">enabled</property>
   </header>
   <body>
     <resources>
@@ -18,25 +19,9 @@
         <property name="name">router</property>
         <property name="inventoryName"/>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
-          <session baseSessionProfile="" name="python" provider="com.fnfr">
+          <session baseSessionProfile="" name="aqc1_cmd_c" provider="com.fnfr">
             <sessionProfile version="8.0.0.201907041835">
-              <baseApplication>com.fnfr.svt.applications.python</baseApplication>
-              <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
-              <baseProfile>project://iTest_demo/session_proflie/python.ffsp</baseProfile>
-              <standalone>false</standalone>
-            </sessionProfile>
-          </session>
-          <session baseSessionProfile="project://iTest_demo/session_proflie/qc1_cmd_e.ffsp" name="cmd" provider="com.fnfr">
-            <sessionProfile version="8.0.0.201907041835">
-              <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
-              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
-              <baseProfile>project://iTest_demo/session_proflie/qc1_cmd_e.ffsp</baseProfile>
-              <standalone>false</standalone>
-            </sessionProfile>
-          </session>
-          <session baseSessionProfile="" name="command_prompt_t" provider="com.fnfr">
-            <sessionProfile version="8.0.0.201907041835">
-              <baseApplication>com.fnfr.itest.applications.spirent.customtool.commandpromptt</baseApplication>
+              <baseApplication>com.fnfr.itest.applications.spirent.customtool.aqc1cmdc</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties">
                 <terminalProperties>
                   <stepDefaults>
@@ -69,14 +54,94 @@
                   </prompts>
                 </terminalProperties>
               </sessionProperties>
-              <baseProfile>project://iTest_demo/session_proflie/customized.ffsp</baseProfile>
+              <baseProfile>project://iTest_demo/session_proflie/customized%20sessions/qc1_cmd_c.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="python" provider="com.fnfr">
+            <sessionProfile version="8.0.0.201907041835">
+              <baseApplication>com.fnfr.svt.applications.python</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+              <baseProfile>project://iTest_demo/session_proflie/python.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="aqc1_cmd_e" provider="com.fnfr">
+            <sessionProfile version="8.0.0.201907041835">
+              <baseApplication>com.fnfr.itest.applications.spirent.customtool.aqc1cmde</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties">
+                <terminalProperties>
+                  <stepDefaults>
+                    <lineTerminator inherit="false">SLASH_R</lineTerminator>
+                    <implicitCrWithLf inherit="false">true</implicitCrWithLf>
+                  </stepDefaults>
+                  <terminalSizeProperties>
+                    <termWidth inherit="false">200</termWidth>
+                    <heightSizing inherit="false">FREE</heightSizing>
+                    <widthSizing inherit="false">FIXED</widthSizing>
+                  </terminalSizeProperties>
+                  <captureProperties>
+                    <commandBreakChars inherit="false">
+                      <item>[char Ctrl-C]</item>
+                    </commandBreakChars>
+                    <commandCompletionchars inherit="false">
+                      <item>[char TAB]</item>
+                    </commandCompletionchars>
+                  </captureProperties>
+                  <keyboardProperties>
+                    <carriageReturn inherit="false">SLASH_R</carriageReturn>
+                  </keyboardProperties>
+                  <prompts inherit="false">
+                    <item MatchMethod="REGULAR_EXPRESSION" name="defaultPrompt">
+                      <Content>.*[\\&gt;]$</Content>
+                    </item>
+                    <item MatchMethod="WILDCARD" TypeOfPrompt="MORE" name="defaultMorePrompt">
+                      <Content>*more*</Content>
+                    </item>
+                  </prompts>
+                </terminalProperties>
+              </sessionProperties>
+              <baseProfile>project://iTest_demo/session_proflie/customized%20sessions/qc1_cmd_e.ffsp</baseProfile>
               <standalone>false</standalone>
             </sessionProfile>
           </session>
         </extensions>
+        <resource guid="368d0cf3-71d4-4d90-ab4e-a12a1563a01f" id="resource_0_0" type="port">
+          <property name="name">port1</property>
+          <property name="inventoryName"></property>
+        </resource>
+        <resource guid="45bd20ed-d9c2-457a-8237-b78f06bb684d" id="resource_0_1" type="port">
+          <property name="name">port2</property>
+          <property name="inventoryName"></property>
+        </resource>
+      </resource>
+      <resource guid="201985e3-e952-4bd0-9fc5-1af6bbcc0dcc" id="resource_1" type="pc">
+        <boundary height="100" width="100" x="491" y="252"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/pc_32.gif</property>
+        <property name="name">pc1</property>
+        <property name="inventoryName"></property>
+        <resource guid="15c1029d-3ac7-48f7-bd10-381abeb5a17f" id="resource_1_0" type="port">
+          <property name="name">port1</property>
+          <property name="inventoryName"></property>
+        </resource>
+        <resource guid="f0a28c7f-4ea9-4f69-9bb7-34b4c1e0dd2b" id="resource_1_1" type="port">
+          <property name="name">port2</property>
+          <property name="inventoryName"></property>
+        </resource>
       </resource>
     </resources>
-    <connectivity/>
+    <connectivity>
+      <link id="link_0">
+        <property name="name">link1</property>
+        <endpoint id="resource_0_0"/>
+        <endpoint id="resource_1_0"/>
+      </link>
+      <link id="link_1">
+        <property name="name">link2</property>
+        <endpoint id="resource_1_1"/>
+        <endpoint id="resource_0_1"/>
+      </link>
+    </connectivity>
   </body>
   <illustration>
     <layer/>

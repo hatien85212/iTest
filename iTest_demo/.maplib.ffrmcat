@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
-<ResponseMapCatalog version="8.0.0.201907041835">
+<ResponseMapCatalog version="8.0.0.201908290812">
     <mapCatalog>
+        <item name="response_maps/x_-arg1_1_-arg2_2.ffrm">
+            <applicability actionType="sum_31" command="-arg1 1 -arg2 2">
+                <application>
+                    <item>com.fnfr.svt.applications.python</item>
+                </application>
+            </applicability>
+        </item>
         <item name="test_cases/new_response_map.ffrm"/>
     </mapCatalog>
 </ResponseMapCatalog>

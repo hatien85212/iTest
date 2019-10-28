@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<testCase version="8.0.0.201907041835">
+<testCase version="7.3.0.201903220921">
     <execution>
-        <parameters version="8.0.0.201907041835">
+        <parameters version="7.3.0.201903220921">
             <parameters escape="true">
                 <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
                     <pa_ip>10.20.12.131</pa_ip>
@@ -12,6 +12,46 @@
     <procedures>
         <item name="main">
             <steps>
+                <item guid="5547764f-21fd-4d27-ad0a-630b5b7b041d" action="open" session="t2" useFieldsInCommand="false">
+                    <command>
+                        <body>project://iTest_demo/session_proflie/ss1_original/qc3_python_cmd.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="2c725f47-25ce-4e53-9e50-390e1bbae4cf" action="command" session="t2" useFieldsInCommand="false">
+                    <command>
+                        <body>1+5</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="dbed5678-d1aa-4b23-91d7-5c51180a2fbe" action="open" session="t1" useFieldsInCommand="false">
+                    <command>
+                        <body>project://iTest_demo/session_proflie/ss1_original/qc1_cmd.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="a6e30c8d-300e-436e-b7af-54095ee6c488" action="command" session="t1">
+                    <command>
+                        <body>ping 10.20.12.88</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="45a50794-4fa5-41f2-9834-53508741641e" action="sleep">
+                    <command>
+                        <body>5</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
                 <item guid="c37c4d42-056c-4e14-8d0c-6af70a0b9c2c" action="open" session="s2" useFieldsInCommand="false">
                     <command>
                         <body>project://iTest_demo/session_proflie/customized%20sessions/qc3_python_cmd_c.ffsp</body>
@@ -27,7 +67,53 @@
                     <command>
                         <body>-arg1 1 -arg2 2</body>
                     </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="contains">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                        <searchString>true</searchString>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value == 1</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>{auto_message_true}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>{auto_message_false}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                                <skip>true</skip>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
                     <applicationProperties type="com.fnfr.itest.platform2.shared.documents.ntaf.NtafTransferableDocumentObject" action="sum_31" subharness="http://spirent.com/CustomizedSessions/tools/AQC3pythoncmdCtxtfilenoparam/harness/main" harness="http://spirent.com/CustomizedSessions/tools/AQC3pythoncmdCtxtfilenoparam/harness/main" harnessName="Spirent Custom Tool"/>
+                </item>
+                <item guid="cc92c691-e27c-4930-b63e-9ed3727306e4" action="close" session="s2" skip="true" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a9fad5da-072f-408c-9ca0-976aa035296f" action="close" session="t2" skip="true" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="72f17c03-ad02-4e5d-ad99-faa00af72c37" action="close" session="t1" skip="true" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
                 </item>
             </steps>
         </item>
